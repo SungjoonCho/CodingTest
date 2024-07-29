@@ -1,0 +1,53 @@
+// 진정한 효도 (Softeer)
+
+#include<iostream>
+#include<vector>
+#include<algorithm>
+
+
+using namespace std;
+
+int mat[3][3];
+
+int main(int argc, char** argv)
+{
+
+    // 입력받기
+    for(int i=0; i<3; i++){
+        for(int j=0; j<3; j++){
+            cin >> mat[i][j];
+        }
+    }
+
+    int minimum = 100;
+    
+    // 차이 구하기 (행별)
+    for(int i=0; i<3; i++){
+        
+        int arr[3] = {0,0,0};
+        
+        arr[0] = abs(mat[i][0]-mat[i][1]);
+        arr[1] = abs(mat[i][1]-mat[i][2]);
+        arr[2] = abs(mat[i][0]-mat[i][2]);
+
+        int maximum = *std::max_element(arr, arr+3);
+        minimum = min(maximum, minimum);
+    }
+
+    // 차이 구하기 (열별)
+    for(int i=0; i<3; i++){
+
+        int arr[3] = {0,0,0};
+        
+        arr[0] = abs(mat[0][i]-mat[1][i]);
+        arr[1] = abs(mat[0][i]-mat[2][i]);
+        arr[2] = abs(mat[2][i]-mat[1][i]);
+        
+        int maximum = *std::max_element(arr, arr+3);
+        minimum = min(maximum, minimum);
+    }
+
+    cout << minimum;
+    
+    return 0;
+}

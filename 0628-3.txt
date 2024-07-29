@@ -1,0 +1,78 @@
+// 가장큰수 (프로그래머스)
+
+#include <string>
+#include <vector>
+#include <iostream>
+#include <map>
+#include <algorithm>
+
+using namespace std;
+
+
+vector<vector<string>> numVec;
+
+
+bool compare(string a, string b){
+    
+    int size_a(a.size());
+    int size_b(b.size());
+    
+    string tem_a = a;
+    string tem_b = b;    
+    
+    // 문자열 길이 맞춰주기
+    if(size_a != size_b){
+        for(int i=1; i<size_b; i++){
+            tem_a += a;
+        }
+        
+        for(int i=1; i<size_a; i++){
+            tem_b += b;
+        }
+    }
+    
+    return tem_a < tem_b;    
+}
+
+string solution(vector<int> numbers) {
+    
+    for(int i=0; i<10; i++){
+        numVec.push_back({});
+    }
+    
+    // vector에 추가
+    for(int i=0; i<numbers.size(); i++){        
+        string temStr = to_string(numbers[i]);
+        int first = stoi(temStr.substr(0,1));
+                
+        numVec[first].push_back(temStr);        
+    }
+    
+    // 내림차순 정렬
+    for(int i=0; i<numVec.size(); i++){
+        sort(numVec[i].begin(), numVec[i].end(), compare);
+    }
+    
+    
+    // 연결
+    string answer = "";
+    for(int i=numVec.size()-1; i>=0; i--){
+        
+        if(numVec[i].empty()){
+            continue;
+        }
+        
+        if(i==0 && answer == ""){
+            return "0";
+        }
+        
+        int cur = numVec[i].size()-1;
+        while(cur >= 0){
+            answer = answer + numVec[i][cur];
+            cur--;
+        }
+    }
+    
+    
+    return answer;
+}

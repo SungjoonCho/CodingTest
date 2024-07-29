@@ -1,0 +1,81 @@
+// 여행경로 (프로그래머스)
+
+
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <map>
+#include <iostream>
+
+using namespace std;
+
+map<string, vector<string>> myMap;
+bool finish = false;
+vector<string> answer;
+vector<string> finalAnswer;
+int totalCnt = 0;
+
+void dfs(string target){
+    
+    if(finish == true){
+        return;
+    }
+    
+    if(totalCnt == 0){
+        finish = true;
+        
+        for(int i=0; i<answer.size(); i++){
+            finalAnswer.push_back(answer[i]);
+        }
+        
+        return;
+    }
+    
+    for(int i=0; i<myMap[target].size(); i++){
+        string cur = myMap[target][i];
+        
+        myMap[target].erase(myMap[target].begin() + i);
+        answer.push_back(cur);       
+        
+        if(myMap[target].size() == 0){
+            totalCnt--;
+        }
+        
+        
+        
+        dfs(cur);
+        
+        // 복구        
+        if(myMap[target].size() == 0){
+            totalCnt++;
+        }
+        
+        myMap[target].insert(myMap[target].begin()+i, cur);        
+        answer.erase(answer.end());
+        
+    }
+}
+    
+
+
+
+vector<string> solution(vector<vector<string>> tickets) {
+    
+    // myMap 초기화
+    for(int i=0; i<tickets.size(); i++){
+        string curStr = tickets[i][0];
+        if(myMap.find(curStr) == myMap.end()){
+            myMap[curStr] = {tickets[i][1]};
+            totalCnt ++;
+        }
+        else{
+            myMap[curStr].push_back(tickets[i][1]);
+            sort(myMap[curStr].begin(), myMap[curStr].end());            
+        }       
+    }
+    
+    answer.push_back("ICN");
+    dfs("ICN");
+    
+    return finalAnswer;
+}

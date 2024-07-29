@@ -1,0 +1,66 @@
+// 문자열 폭발 (백준)
+
+
+
+# include <iostream>
+# include <string>
+# include <vector>
+# include <algorithm>
+
+using namespace std;
+
+int main(){
+
+    string longStr;
+    cin >> longStr;
+
+    string targetStr;
+    cin >> targetStr;
+
+    vector<string> q;
+
+    int curIdx = 0;
+    while(curIdx < longStr.size()){
+
+        q.push_back(longStr.substr(curIdx, 1));
+
+        curIdx++;
+
+        if(q.size() < targetStr.size()){
+            continue;
+        }
+
+        // 비교
+        string tem = "";
+        int idx = 0;
+        bool correct = true;
+        for(int i=q.size()-targetStr.size(); i<q.size(); i++){
+            if(q[i] != targetStr.substr(idx, 1)){
+                correct = false;
+                break;
+            }
+            idx++;
+        }
+
+        if(correct == true){
+            for(int i=0; i<targetStr.size(); i++){
+                q.pop_back();
+            }
+        }
+        
+    }
+
+
+
+    if(q.empty()){
+        cout << "FRULA";
+    }
+    else{
+        for(int i=0; i<q.size(); i++){
+            cout << q[i];
+        }
+    }
+
+
+    return 0;
+}
