@@ -1,9 +1,7 @@
 
-<<<<<<< HEAD
 # 탈출 - 백준
 
-=======
->>>>>>> f5fef32a6a0bc7dfbc4a043f13ff75fbc7a9c93a
+
 from collections import deque
 
 r,c = list(map(int, input().split()))
