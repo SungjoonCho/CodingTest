@@ -9,7 +9,7 @@ for i in range(n):
     mat[i] = list(map(int, list(input())))
 
 dys = [0, -1, 0, 1]
-dxs = [1, 0, -1, 0]
+dxs = [1, 0, -1, 0] ##
 
 
 
