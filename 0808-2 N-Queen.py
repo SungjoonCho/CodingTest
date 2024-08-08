@@ -21,12 +21,8 @@ check2 = [0] * (n*2-1)  # r-c가 같은 애들
 
 totalQueue = deque()
 
-def in_range(y,x):
-    return 0<=y and y<n and 0<=x and x<n
-
-
 def dfs(rIdx):
-    global answer, totalQueue
+    global answer, totalQueue, col_check, check1, check2
 
     # 종료 조건
     if(rIdx == n):
@@ -56,8 +52,6 @@ def dfs(rIdx):
             check1[rIdx + c] = 0
             check2[rIdx - c + n - 1] = 0
 
-
-
+### main ###
 dfs(0)
-
 print(answer)
