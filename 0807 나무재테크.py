@@ -139,3 +139,121 @@ for r in range(n):
 
 print(answer)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+######## deque로 진행
+
+# import sys
+# from collections import deque
+
+# n,m,k = list(map(int, sys.stdin.readline().split()))
+
+# mat = [[deque() for j in range(n)] for i in range(n)]
+# nu_mat = [[5 for j in range(n)] for i in range(n)]
+# new_nu_mat = [[0 for j in range(n)] for i in range(n)]
+# dead_tree_mat = [[deque() for j in range(n)] for i in range(n)]
+
+# for i in range(n):
+#     new_nu_mat[i] = list(map(int, sys.stdin.readline().split()))
+
+# for _ in range(m):
+#     x,y,z = list(map(int, sys.stdin.readline().split()))
+#     x,y = x-1,y-1    
+#     mat[x][y].append(z)
+    
+
+# dys = [0,-1,-1,-1,0,1,1,1]
+# dxs = [1,1,0,-1,-1,-1,0,1]
+
+# def in_range(y,x):
+#     return 0<=y and y<n and 0<=x and x<n
+    
+# def spring_summer():
+#     global mat, nu_mat, dead_tree_mat
+    
+#     for r in range(n):
+#         for c in range(n):
+            
+#             # 봄
+#             length = len(mat[r][c])
+#             if(length == 0):
+#                 continue
+            
+#             nuVal = nu_mat[r][c]        
+#             for i in range(length):
+#                 if(nuVal < mat[r][c][i]):
+#                     for _ in range(i, length):                        
+#                         dead_tree_mat[r][c].append(mat[r][c].pop())
+#                     break
+#                 nuVal -= mat[r][c][i]
+#                 mat[r][c][i] += 1
+#             nu_mat[r][c] = nuVal
+            
+#             # 여름
+#             while(dead_tree_mat[r][c]):
+#                 val = dead_tree_mat[r][c].pop()
+#                 nu_mat[r][c] += int(val//2)
+                
+# def fall_winter():
+#     global mat, new_nu_mat, nu_mat
+    
+#     for r in range(n):
+#         for c in range(n):
+#             # 겨울 : 양분 추가
+#             nu_mat[r][c] += new_nu_mat[r][c]
+            
+            
+#             # 가을
+#             length = len(mat[r][c])          
+#             if(length == 0):
+#                 continue
+            
+#             for i in range(length):                
+#                 if(mat[r][c][i] % 5 == 0):
+#                     for dy, dx in zip(dys, dxs):
+#                         ny,nx = r+dy, c+dx
+#                         if(not in_range(ny,nx)):
+#                             continue
+                        
+#                         mat[ny][nx].appendleft(1)
+                        
+                
+                
+    
+    
+# for game in range(k):
+    
+#     spring_summer()
+#     # for r in range(n):
+#     #     print(mat[r])
+#     # print()
+    
+#     fall_winter()
+    
+#     # for r in range(n):
+#     #     print(mat[r])
+#     # print()
+    
+    
+# # 개수 세기
+# answer = 0
+# for r in range(n):
+#     for c in range(n):   
+#         answer += len(mat[r][c])
+
+# print(answer)
