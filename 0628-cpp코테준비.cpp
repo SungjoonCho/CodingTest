@@ -29,9 +29,16 @@ queue 선언 : queue<int> q;
 문자열 연결 : +
 
 string to int => stoi(str)
+    stod stof stol
+
 int to string => to_string(a)
 
+선언할 떄 주의
+    long int
+    unsigned long
+    int 붙이나 안붙이나 상관없음
 
+    double
 
 
 배열에서 최대값 선택
