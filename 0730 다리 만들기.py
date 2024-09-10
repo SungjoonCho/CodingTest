@@ -1,6 +1,9 @@
 # 다리 만들기 (백준)
 # https://www.acmicpc.net/problem/2146
 
+# bfs로 각 나라마다 번호 매김, 각 나라의 경계선 구하기
+# 각 경계에서 bfs로 다른 나라까지의 길이 구하기
+
 
 n = int(input())
 mat = [[0 for j in range(n)] for i in range(n)]
