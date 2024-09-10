@@ -1,4 +1,7 @@
-# # 말이 되고픈 원숭이
+# 말이 되고픈 원숭이
+# https://www.acmicpc.net/problem/1600
+
+# bfs, dp 활용 (말처럼 움직였을 때, 안 움직였을 때 나눠서 저장)
 
 
 from collections import deque
