@@ -1,4 +1,11 @@
 
+# 로봇 - 백준
+# https://www.acmicpc.net/problem/1726
+
+
+# bfs 하되 데이터 관리를 3차원으로 해서 같은 위치여도 각 방향에 있어본 적이 있는지 체크
+
+
 from collections import deque
 
 m,n = list(map(int, input().split()))
