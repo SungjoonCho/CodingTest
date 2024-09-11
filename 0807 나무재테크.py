@@ -1,5 +1,5 @@
 # 나무 재테크 - 백준
-
+# https://www.acmicpc.net/problem/16235
 
 # 리스트로 할 경우
 # 봄 여름 sort + len(칸 list) * N^2
