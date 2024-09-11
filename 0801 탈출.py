@@ -1,6 +1,9 @@
 
 # 탈출 - 백준
+# https://www.acmicpc.net/problem/3055
 
+# 물 먼저 이동 후 고슴도치 이동
+# 물, 고슴도치 각각 bfs 진행
 
 from collections import deque
 
@@ -58,7 +61,8 @@ def water_bfs():
 
 
 def goseum_bfs(nextList):    
-    
+
+    # bfs 진행하면서 curList 에다가 현재 가고 있는 path 계속 추가하다가 목적지 도착하면, curList에 저장된 데이터 중에 1번째 인덱스 데이터가 바로 다음에 갈 곳    
     g_queue = deque()
     g_visited = [[False for j in range(c)] for i in range(r)]
     bfsMat = [[0 for j in range(c)] for i in range(r)]
