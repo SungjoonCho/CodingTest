@@ -1,4 +1,5 @@
 # 단어수학 - 백준
+# https://www.acmicpc.net/problem/1339
 
 n = int(input())
 
