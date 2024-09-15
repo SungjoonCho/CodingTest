@@ -1,6 +1,6 @@
 
 
-# 파이프 옮기기 1 - 백준
+# 파이프 옮기기 1, 2 - 백준
 # https://www.acmicpc.net/problem/17070
 
 
