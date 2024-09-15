@@ -2,6 +2,7 @@
 
 # 파이프 옮기기 1, 2 - 백준
 # https://www.acmicpc.net/problem/17070
+# https://www.acmicpc.net/problem/17069
 
 
 # bfs로는 시간 초과
