@@ -1,9 +1,6 @@
 
 # 컨벤 데드가 하고싶어요 - 백준
 
-# DP 문제
-# 2차원 DP - 각 DP 방 값은 위, 왼쪽의 값 중 최솟값 + 현재 헬창 눈치력 값으로 결정
-
 import sys
 
 input = sys.stdin.readline
@@ -33,3 +30,7 @@ if dp[-1][-1] > H:
 else:
     print('YES')
     print(dp[-1][-1])
+
+
+# DP 문제
+# 2차원 DP - 각 DP 방 값은 위, 왼쪽의 값 중 최솟값 + 현재 헬창 눈치력 값으로 결정
