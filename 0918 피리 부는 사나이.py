@@ -7,6 +7,7 @@ import sys
 def in_range(y,x):
     return 0<=y and y<N and 0<=x and x<M
 
+# 본인한테 온 경우가 있는지 확인 : 그런 케이스들은 visited True 처리 
 def dfs_back(cy,cx):
     global visited
 
@@ -55,7 +56,8 @@ for r in range(N):
 print(answer)
 
 
-# 분리 가능한 섬이 몇개인지 구하는 문제랑 똑같이 풀음
+# 분리 가능한 파트가 몇개인지 구하는 문제랑 똑같이 풀음
+
 # 반복문으로 각 지점의 방문 여부 확인
 # 방문 안했으면 재귀로 최대한 방문 가능한 모든 지점 체크
 # 역방향으로도 체크 (자기한테 오는 화살표들 역으로 따라감)
