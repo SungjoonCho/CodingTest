@@ -1,4 +1,3 @@
-
 # 웜홀
 # https://www.acmicpc.net/problem/1865
 
@@ -9,7 +8,7 @@ input = sys.stdin.readline
 
 
 def bellman(start):
-    dp = [2000000000] * (N+1)
+    dp = [2000001] * (N+1)
     dp[start] = 0
     for i in range(N):
         for s,e in graphKey:
@@ -32,10 +31,10 @@ for eachTc in range(tc):
     for i in range(M):
         s,e,t = map(int, input().split())
         if (s,e) not in graphKey:
-            graph[(s,e)] = 2000000000
+            graph[(s,e)] = 2000001
             graphKey.add((s,e))
         if (e,s) not in graphKey:
-            graph[(e,s)] = 2000000000
+            graph[(e,s)] = 2000001
             graphKey.add((e,s))        
         graph[(s,e)] = min(graph[(s,e)], t)
         graph[(e,s)] = min(graph[(e,s)], t)
@@ -43,7 +42,7 @@ for eachTc in range(tc):
     for i in range(W):
         s,e,t = map(int, input().split())    
         if (s,e) not in graphKey:
-            graph[(s,e)] = 2000000000
+            graph[(s,e)] = 2000001
             graphKey.add((s,e))
         graph[(s,e)] = min(graph[(s,e)], -1*t)
         
