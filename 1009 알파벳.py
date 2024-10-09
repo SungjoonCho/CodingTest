@@ -1,5 +1,5 @@
 
-# 알파벳
+# 알파벳 - 2번째 
 # https://www.acmicpc.net/problem/1987
 
 import sys
